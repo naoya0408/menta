@@ -45,3 +45,4 @@ return
  
 #旧バックアップファイル削除
 deletefile "$BACKUP_PATH/wp_"
+
