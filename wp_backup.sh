@@ -1,9 +1,16 @@
 #!/bin/sh
 
+# WordPressをシェルスクリプトでバックアップする
+
+
 #DBユーザー
 DB_USER="mentabloguser"
 #DBパスワード
+<<<<<<< HEAD
 DB_PASSWORD="Password"
+=======
+DB_PASSWORD="password"
+>>>>>>> wp-backup
 #DB名
 DB_NAME="wp_mentablog"
 #DBホスト
@@ -45,3 +52,4 @@ return
  
 #旧バックアップファイル削除
 deletefile "$BACKUP_PATH/wp_"
+
