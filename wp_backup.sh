@@ -3,7 +3,7 @@
 #DBユーザー
 DB_USER="mentabloguser"
 #DBパスワード
-DB_PASSWORD="Sakasu3859!"
+DB_PASSWORD="Password"
 #DB名
 DB_NAME="wp_mentablog"
 #DBホスト
