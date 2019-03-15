@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# WordPressをシェルスクリプトでバックアップする
+
+#DBユーザー
+DB_USER="mentabloguser"
+#DBパスワード
+DB_PASSWORD="password"
 #DB名
 DB_NAME="wp_mentablog"
 #バックアップ先
