@@ -1,15 +1,7 @@
 #!/bin/sh
 
-#DBユーザー
-DB_USER="mentabloguser"
-#DBパスワード
-DB_PASSWORD="password"
 #DB名
 DB_NAME="wp_mentablog"
-#DBホスト
-DB_HOST="localhost"
-#wordpressのファイルパス
-WORDPRESS_PATH="/var/www/wordpress/"
 #バックアップ先
 BACKUP_PATH="/root/backup/menta_backup/"
 #バックアップ世代数
@@ -18,7 +10,7 @@ NUMBER_OF_GENERATIONS="5"
 DATE=`date +%Y%m%d-%H%M%k`
 
 # mysqldumpの実行(圧縮ファイルで保存する)
-eval "mysqldump -u$DB_USER -h$DB_HOST -p$DB_PASSWORD $DB_NAME | gzip > $BACKUP_PATH/wp_$DATE.sql.gz"
+mysqldump --defaults-extra-file=/etc/my.cnf $DB_NAME | gzip > $BACKUP_PATH/wp_$DATE.sql.gz
 # 正常終了しなかったときの処理 
 if [ $? -ne 0 ]
 then
