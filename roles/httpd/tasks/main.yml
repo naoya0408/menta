@@ -1,0 +1,15 @@
+- name: install apache
+  yum: name=httpd state=latest
+
+- name: copy httpd.conf
+  copy:
+    src: "roles/httpd/files/{{ item.src }}"
+    dest: "/etc/httpd/conf/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - { src: httpd.conf }
+  notify: restart httpd
+
