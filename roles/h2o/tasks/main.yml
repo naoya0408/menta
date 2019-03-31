@@ -1,0 +1,33 @@
+- name: copy h2o.repo
+  copy:
+    src: "/etc/ansible/roles/h2o/h2o.repo"
+    dest: "/etc/yum.repos.d/"
+
+- name: install h2o
+  yum: name=h2o state=present
+
+- name: start h2o
+  service: name=h2o enabled=yes state=started
+
+- name: copy h2o menta.me.conf
+  copy:
+    src: "/etc/ansible/roles/h2o/conf.d/{{ item.src }}"
+    dest: "/etc/h2o/conf.d/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - { src: menta.me.conf }
+
+- name: copy h2o.conf
+  copy:
+    src: "/etc/ansible/roles/h2o/{{ item.src }}"
+    dest: "/etc/h2o/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - { src: h2o.conf }
+  notify: restart h2o
