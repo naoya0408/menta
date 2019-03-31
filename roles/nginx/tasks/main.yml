@@ -1,0 +1,30 @@
+- name: copy nginx.repo
+  copy:
+    src: "/etc/ansible/roles/nginx/nginx.repo"
+    dest: "/etc/yum.repos.d/"
+
+- name: install nginx
+  yum: name=h2o state=present
+
+- name: copy nginx menta.me.conf
+  copy:
+    src: "/etc/ansible/roles/nginx/conf.d/{{ item.src }}"
+    dest: "/etc/nginx/conf.d/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - { src: menta.me.conf }
+
+- name: copy nginx.conf
+  copy:
+    src: "/etc/ansible/roles/nginx/{{ item.src }}"
+    dest: "/etc/nginx/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - { src: nginx.conf }
+  notify: restart nginx
