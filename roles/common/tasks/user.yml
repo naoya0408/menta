@@ -1,0 +1,25 @@
+- name: create group menta
+  group:
+    name: menta
+    state: present
+
+- name: create user menta
+  user:
+    name: menta
+    createhome: yes
+    state: present
+    groups: menta
+    shell: /bin/bash
+    
+- name: add sudoers
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: menta
+    line: 'menta ALL=(ALL) NOPASSWD: ALL'
+
+- name: authorized_key for user menta
+  ignore_errors: true
+  authorized_key:
+    user: menta
+    key: "authorized_keys"
