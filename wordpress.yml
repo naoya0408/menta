@@ -1,0 +1,8 @@
+- hosts: all
+  roles:
+    - common
+    - h2o
+    - mysql
+    - php
+    - httpd
+    - nginx
