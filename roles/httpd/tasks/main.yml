@@ -12,4 +12,3 @@
   loop:
     - { src: httpd.conf }
   notify: restart httpd
-
