@@ -28,3 +28,4 @@
   loop:
     - { src: nginx.conf }
   notify: restart nginx
+
