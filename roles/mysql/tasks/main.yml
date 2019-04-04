@@ -22,3 +22,4 @@
   loop:
     - { src: my.cnf, dest: . }
   notify: restart mysqld
+
