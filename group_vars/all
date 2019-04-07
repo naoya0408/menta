@@ -5,4 +5,3 @@ PHP_VERSION_EPEL: "epel-release"
 
 #mysql
 MYSQL_VERSION: "https://dev.mysql.com/get/mysql80-community-release-el7-2.noarch.rpm"
-
