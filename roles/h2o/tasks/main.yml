@@ -31,4 +31,3 @@
   loop:
     - { src: h2o.conf }
   notify: restart h2o
-
