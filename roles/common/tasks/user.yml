@@ -23,4 +23,3 @@
   authorized_key:
     user: menta
     key: "authorized_keys"
-
