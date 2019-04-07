@@ -26,4 +26,3 @@
     - { src: "www.conf", dest: . }
 
   notify: restart php-fpm
-
