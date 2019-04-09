@@ -1,6 +1,6 @@
 #/bin/bash
 
-DIR=/root//backup
+DIR=/root/backup
 
 DATE=`date +%Y%m%d`
 OLD_DATE=`date +%Y%m%d --date "5 days ago"`
