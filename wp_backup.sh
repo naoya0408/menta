@@ -11,3 +11,4 @@ OLD_DUMP=$DIR/mysqldump.$OLD_DATE.sql
 mysqldump -u root -pSakasitasakasu3859! --all-databases > $DUMP
 
 rm -f $OLD_DUMP
+
