@@ -1,0 +1,6 @@
+# 自動生成されたファイル
+mysql/
+wordpress/
+
+# logファイル
+log/
