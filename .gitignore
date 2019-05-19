@@ -1,0 +1,7 @@
+# 自動生成されたファイル
+mysql/
+wordpress/
+.DS_Store
+
+# logファイル
+log/
