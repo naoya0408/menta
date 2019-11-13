@@ -17,10 +17,9 @@
 
 - name: copy nginx.conf
   copy:
-    src: "../templates/nginx.conf"
+    src: "roles/nginx/templates/nginx.conf"
     dest: "/etc/nginx/"
     backup: no
     owner: root
     group: root
     mode: 0644
-  notify: restart nginx
