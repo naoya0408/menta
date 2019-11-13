@@ -32,16 +32,16 @@
     - php-mbstring
     - php-mysqlnd
 
-- name: copy www.conf
-  copy:
-    src: "../templates/www.conf"
-    dest: "/etc/php-fpm.d/"
-    backup: no
-  notify: restart php-fpm
-
 - name: start php-fpm
   systemd:
     name: php-fpm.service
     state: restarted
     daemon_reload: yes
     enabled: yes
+
+- name: copy www.conf
+  copy:
+    src: "roles/php/templates/www.conf"
+    dest: "/etc/php-fpm.d/"
+    backup: no
+  notify: restart php-fpm
