@@ -1,0 +1,25 @@
+---
+- name: enable amzn2extra-nginx1.12 repository
+  shell: amazon-linux-extras enable nginx1.12
+  changed_when: false
+
+- name: install nginx packages from amazon-linux-extras
+  yum:
+    name: nginx
+    state: present
+
+- name: start nginx
+  systemd:
+    name: nginx.service
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+
+- name: copy nginx.conf
+  copy:
+    src: "roles/nginx/templates/nginx.conf"
+    dest: "/etc/nginx/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644

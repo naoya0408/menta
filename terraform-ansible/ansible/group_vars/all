@@ -1,0 +1,6 @@
+#php
+PHP_VERSION_REMI: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm"
+PHP_VERSION_EPEL: "http://rpms.famillecollet.com/enterprise/remi-release-7.rpm"
+
+#wordpress
+WORDPRESS_URL: "https://ja.wordpress.org/latest-ja.tar.gz"

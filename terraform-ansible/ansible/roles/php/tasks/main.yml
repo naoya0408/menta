@@ -1,0 +1,47 @@
+---
+- name: amzn2-core.repo priority down
+  replace:
+    path: /etc/yum.repos.d/amzn2-core.repo
+    regexp: "priority=10"
+    replace: "priority=99"
+
+- name: amzn2-extras.repo priority down
+  replace:
+    path: /etc/yum.repos.d/amzn2-extras.repo
+    regexp: "priority = 10"
+    replace: "priority=99"
+
+- name: install epel/remi
+  yum:
+    name: "{{item}}"
+    state: present
+  loop:
+    - "{{PHP_VERSION_EPEL}}"
+    - "{{PHP_VERSION_REMI}}"
+
+- name: php72 install
+  yum:
+    name: "{{item}}"
+    state: present
+    enablerepo: remi,remi-php72
+  loop:
+    - php
+    - php-devel
+    - php-fpm
+    - php-gd
+    - php-mbstring
+    - php-mysqlnd
+
+- name: start php-fpm
+  systemd:
+    name: php-fpm.service
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+
+- name: copy www.conf
+  copy:
+    src: "roles/php/templates/www.conf"
+    dest: "/etc/php-fpm.d/"
+    backup: no
+  notify: restart php-fpm
